@@ -89,3 +89,47 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+.logo-mini{
+    font-family: "Impact", Charcoal, sans-serif
+}
+
+.logo{
+    background-color: #40d47e !important;
+}
+
+.navbar{
+    background-color: #40d47e !important;
+}
+
+.panel-heading{
+    background-color: #40d47e !important;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side{
+    background-color: #5E5E47 !important;
+}
+
+.btn.btn-success{
+    width: 150px;
+    background-color: #40d47e !important;
+}
+
+#tablePembacaan{
+    border-top: none !important;
+    background-color: #E1E6E8;
+}
+
+#boxTablePembacaan{
+    border-top: none !important;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#tabledepok_paginate > [role="button"]{
+    margin-left: 10px;
+}
+
+.profile{
+    width: 50%;
+    height: 50%;
+}

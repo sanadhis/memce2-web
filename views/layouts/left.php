@@ -6,40 +6,6 @@ use yii\bootstrap\Nav;
 
     <section class="sidebar">
 
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Cari..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
-		<!--
-        <?=
-        
-        Nav::widget(
-            [
-                'encodeLabels' => false,
-                'options' => ['class' => 'sidebar-menu'],
-                'items' => [
-                    '<li class="header">Menu</li>',
-                    ['label' => '<i class="fa fa-file-code-o"></i><span>Gii</span>', 'url' => ['/gii']],
-                    ['label' => '<i class="fa fa-dashboard"></i><span>Debug</span>', 'url' => ['/debug']],
-                    [
-                        'label' => '<i class="glyphicon glyphicon-lock"></i><span>Sing in</span>', //for basic
-                        'url' => ['/site/login'],
-                        'visible' =>Yii::$app->user->isGuest
-                    ],
-                ],
-            ]
-        );		 
-        ?>
-       -->
-
         <ul class="sidebar-menu">
             <li class="treeview">
                 <a href="#">
@@ -55,10 +21,10 @@ use yii\bootstrap\Nav;
                 </ul>
             </li>
             <li>
-            	<a href="<?= \yii\helpers\Url::to(['/site/about']) ?>"><span class="fa fa-info"></span>Tentang Kami</a>
+            	<a href="<?= \yii\helpers\Url::to(['/site/about']) ?>"><i class="fa fa-user"></i><span>Tentang Kami</span></a>
             </li>
             <li>
-            	<a href="<?= \yii\helpers\Url::to(['/site/gotohow']) ?>"><span class="fa fa-info"></span>Bagaimana Cara Kerjanya?</a>
+            	<a href="<?= \yii\helpers\Url::to(['/site/gotohow']) ?>"><i class="fa fa-github"></i><span>Bagaimana Cara Kerjanya?</span></a>
             </li>
         </ul>
 

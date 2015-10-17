@@ -11,7 +11,7 @@ var chartTekanan;
  */
 function requestData() {
     $jq.ajax({
-        url: '/memce2-web/web/index.php/location/livedepoksuhu',
+        url: '/memce2/web/index.php/location/livedepoksuhu',
         success: function(point) {
             var series = chart.series[0],
                 shift = series.data.length > (3600*2); // shift if the series is 
@@ -23,8 +23,8 @@ function requestData() {
                                 
             chart.series[0].addPoint([x,y], true, shift);
             
-            // call it again after one second
-            setTimeout(requestData, 1000);
+            // call it again after five minute
+            setTimeout(requestData, 120000);
          	
         },
         cache: false
@@ -41,7 +41,7 @@ $jq(document).ready(function() {
             }
         },
         title: {
-            text: 'Suhu'
+            text: 'Suhu (Celcius)'
         },
         xAxis: {
             type: 'datetime',
@@ -58,6 +58,9 @@ $jq(document).ready(function() {
         },
         series: [{
             name: 'Suhu',
+            threshold: 30,
+            negativeColor: 'blue',
+            color: 'yellow',
             data: []
         }]
     });        
@@ -65,7 +68,7 @@ $jq(document).ready(function() {
 
 function requestDataHum() {
     $jq.ajax({
-        url: '/memce2-web/web/index.php/location/livedepokkelembaban',
+        url: '/memce2/web/index.php/location/livedepokkelembaban',
         success: function(point) {
             var series = chartHum.series[0],
                 shift = series.data.length > (3600*2); // shift kalo udah 2 jam
@@ -76,8 +79,8 @@ function requestDataHum() {
                                 
             chartHum.series[0].addPoint([x,y], true, shift);
             
-            // call it again after one second
-            setTimeout(requestDataHum, 1000);
+            // call it again after five minute
+            setTimeout(requestDataHum, 120000);
          	
         },
         cache: false
@@ -94,7 +97,7 @@ $jq(document).ready(function() {
             }
         },
         title: {
-            text: 'Kelembaban'
+            text: 'Kelembaban (%)'
         },
         xAxis: {
             type: 'datetime',
@@ -111,6 +114,9 @@ $jq(document).ready(function() {
         },
         series: [{
             name: 'Kelembaban',
+            threshold: 48,
+            negativeColor: 'yellow',
+            color: 'blue',
             data: []
         }]
     });        
@@ -118,7 +124,7 @@ $jq(document).ready(function() {
 
 function requestDataSpeed() {
     $jq.ajax({
-        url: '/memce2-web/web/index.php/location/livedepokkecepatan',
+        url: '/memce2/web/index.php/location/livedepokkecepatan',
         success: function(point) {
             var series = chartSpeed.series[0],
                 shift = series.data.length > (3600*2); // shift kalo udah 2 jam
@@ -129,8 +135,8 @@ function requestDataSpeed() {
                                 
             chartSpeed.series[0].addPoint([x,y], true, shift);
             
-            // call it again after one second
-            setTimeout(requestDataSpeed, 1000);
+            // call it again after five minute
+            setTimeout(requestDataSpeed, 120000);
          	
         },
         cache: false
@@ -147,7 +153,7 @@ $jq(document).ready(function() {
             }
         },
         title: {
-            text: 'Kecepatan Angin'
+            text: 'Kecepatan Angin (km/jam)'
         },
         xAxis: {
             type: 'datetime',
@@ -164,6 +170,9 @@ $jq(document).ready(function() {
         },
         series: [{
             name: 'Kecepatan Angin',
+            threshold: 10,
+            negativeColor: 'blue',
+            color: 'yellow',
             data: []
         }]
     });        
@@ -171,7 +180,7 @@ $jq(document).ready(function() {
 
 function requestDataHujan() {
     $jq.ajax({
-        url: '/memce2-web/web/index.php/location/livedepokhujan',
+        url: '/memce2/web/index.php/location/livedepokhujan',
         success: function(point) {
             var series = chartHujan.series[0],
                 shift = series.data.length > (3600*2); // shift kalo udah 2 jam
@@ -182,8 +191,8 @@ function requestDataHujan() {
                                 
             chartHujan.series[0].addPoint([x,y], true, shift);
             
-            // call it again after one second
-            setTimeout(requestDataHujan, 1000);
+            // call it again after five minute
+            setTimeout(requestDataHujan, 120000);
          	
         },
         cache: false
@@ -200,7 +209,7 @@ $jq(document).ready(function() {
             }
         },
         title: {
-            text: 'Curah Hujan'
+            text: 'Curah Hujan (%)'
         },
         xAxis: {
             type: 'datetime',
@@ -217,6 +226,9 @@ $jq(document).ready(function() {
         },
         series: [{
             name: 'Curah Hujan',
+            threshold: 2,
+            negativeColor: 'yellow',
+            color: 'blue',
             data: []
         }]
     });        
@@ -224,7 +236,7 @@ $jq(document).ready(function() {
 
 function requestDataCahaya() {
     $jq.ajax({
-        url: '/memce2-web/web/index.php/location/livedepokcahaya',
+        url: '/memce2/web/index.php/location/livedepokcahaya',
         success: function(point) {
             var series = chartCahaya.series[0],
                 shift = series.data.length > (3600*2); // shift kalo udah 2 jam
@@ -235,8 +247,8 @@ function requestDataCahaya() {
                                 
             chartCahaya.series[0].addPoint([x,y], true, shift);
             
-            // call it again after one second
-            setTimeout(requestDataCahaya, 1000);
+            // call it again after five minute
+            setTimeout(requestDataCahaya, 120000);
          	
         },
         cache: false
@@ -270,6 +282,9 @@ $jq(document).ready(function() {
         },
         series: [{
             name: 'Intensitas Cahaya',
+            threshold: 3,
+            negativeColor: 'blue',
+            color: 'yellow',
             data: []
         }]
     });        
@@ -277,7 +292,7 @@ $jq(document).ready(function() {
 
 function requestDataTekanan() {
     $jq.ajax({
-        url: '/memce2-web/web/index.php/location/livedepoktekanan',
+        url: '/memce2/web/index.php/location/livedepoktekanan',
         success: function(point) {
             var series = chartTekanan.series[0],
                 shift = series.data.length > (3600*2); // shift kalo udah 2 jam
@@ -288,8 +303,8 @@ function requestDataTekanan() {
                                 
             chartTekanan.series[0].addPoint([x,y], true, shift);
             
-            // call it again after one second
-            setTimeout(requestDataTekanan, 1000);
+            // call it again after five minute
+            setTimeout(requestDataTekanan, 120000);
          	
         },
         cache: false
@@ -306,7 +321,7 @@ $jq(document).ready(function() {
             }
         },
         title: {
-            text: 'Tekanan Udara'
+            text: 'Tekanan Udara (Pa)'
         },
         xAxis: {
             type: 'datetime',
@@ -323,6 +338,9 @@ $jq(document).ready(function() {
         },
         series: [{
             name: 'Tekanan Udara',
+            threshold: 1010,
+            negativeColor: 'yellow',
+            color: 'blue',
             data: []
         }]
     });        
